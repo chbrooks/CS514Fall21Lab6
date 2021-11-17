@@ -20,11 +20,25 @@ public class SetOperations {
     /* then do intersection and set difference. */
 
     public static Set<String> intersection(Set<String> s1, Set<String> s2) {
+        if (s1 == null || s2 == null) {
+            throw new IllegalArgumentException();
+        }
+        Set<String> returnSet = new HashSet<>();
+        returnSet.addAll(s1);
+        returnSet.retainAll(s2);
+        return returnSet;
+
 
     }
 
     public static Set<String> setDifference(Set<String> s1, Set<String> s2) {
-
+        if (s1 == null || s2 == null) {
+            throw new IllegalArgumentException();
+        }
+        Set<String> returnSet = new HashSet<>();
+        returnSet.addAll(s1);
+        returnSet.removeAll(s2);
+        return returnSet;
 
     }
 

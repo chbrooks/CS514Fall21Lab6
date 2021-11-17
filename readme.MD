@@ -6,7 +6,9 @@ In this lab, you'll get some practice working with Sets and using Streams to pro
 
 To submit: Please check this lab back into your GitHib repo by the due date.
 
-The lab will be graded according to the specifications grading method described in the syllabus.Specifically:
+The lab will be graded according to the specifications grading method described in the syllabus.
+
+Specifically:
 
 A completed, on-time lab is worth 2 points.
 

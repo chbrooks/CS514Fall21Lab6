@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Stream;
@@ -32,17 +33,25 @@ public class StreamLab {
     public void task3() {
         try {
             Stream<String> fileLines = Files.lines(Paths.get("movieReviews.txt"));
+            System.out.printf("%d", fileLines.count());
         } catch (IOException e) {
             System.out.println("unable to open file.");
         }
-
         /* now let's count the number of words. */
 
     }
 
     /* extend task3 to filter out the lines that begin with 1. Count the total number of lines that begin with 1. */
     public void task4() {
-
+        try {
+            Stream<String> fileLines = Files.lines(Paths.get("movieReviews.txt"));
+            long c = fileLines.filter(w -> w.startsWith("1"))
+                               .filter(w -> w.length() > 5)
+                               .count();
+            System.out.printf("%d", c);
+        } catch (IOException e) {
+            System.out.println("unable to open file.");
+        }
     }
 
 /* Let's extend task4 to split each line into words. This splits the lines
@@ -52,7 +61,7 @@ public class StreamLab {
         try {
             Stream<String> fileLines = Files.lines(Paths.get("movieReviews.txt"));
             fileLines
-                    .flatMap(line -> line.split(" ")).count();
+                    .flatMap(line -> Arrays.stream(line.split(" "))).count();
         } catch (IOException e) {
             System.out.println("unable to open file.");
         }
@@ -88,6 +97,11 @@ public class StreamLab {
      * */
     public void task11() {
 
+    }
+
+    public static void main(String[] args) {
+        StreamLab s = new StreamLab();
+        s.task5();
     }
 
 }
